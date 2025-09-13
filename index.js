@@ -1,5 +1,6 @@
 // the token only works for trips.xnacly.me, don't bother
-const MAPBOXTOKEN = "pk.eyJ1IjoieG5hY2x5IiwiYSI6ImNtZmlwc3JnNTBuN2Yya3NhYTZyNnNsMnMifQ.ioj5_trA4_KOF1Mat5OeeA";
+const MAPBOX_TOKEN = "pk.eyJ1IjoieG5hY2x5IiwiYSI6ImNtZmlwc3JnNTBuN2Yya3NhYTZyNnNsMnMifQ.ioj5_trA4_KOF1Mat5OeeA";
+const MAP_STYLE = "mapbox://styles/mapbox/dark-v11";
 
 function randomColor() {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
@@ -44,11 +45,11 @@ function toGeoJson(rawJson) {
 }
 
 function prepareMap() {
-    mapboxgl.accessToken = MAPBOXTOKEN;
+    mapboxgl.accessToken = MAPBOX_TOKEN;
 
     const map = new mapboxgl.Map({
         container: "map",
-        style: "mapbox://styles/mapbox/streets-v12",
+        style: MAP_STYLE,
         center: [13.39525, 52.51674],
         zoom: 4
     });
